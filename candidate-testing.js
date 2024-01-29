@@ -27,7 +27,6 @@ function askQuestion() {
 for (let i = 0; i < 5; i++){
   candidateAnswers=candidateAnswers+ "," + input.question(questions[i]);
 
-  candidateAnswers= candidateAnswers.toLower();
 candidateAnswers=candidateAnswers.split(",");
 
 candidateAnswers.splice(0,1);
@@ -59,11 +58,10 @@ for (let i = 0; i < 5; i++){
 let grade =0 ;  //TODO 3.2 use this variable to calculate the candidates score.
   grade = (correct) / (questions.length) * 100; 
 
-  return (grade);
+  return (grade,);
 }
 
-console.log(correctAnswers);
-console.log(candidateAnswer);
+
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
