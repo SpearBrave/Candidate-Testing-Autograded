@@ -9,10 +9,9 @@ let question="Who was the first American woman in space? ";
 let correctAnswer="Sally Ride";
 let candidateAnswer="";
 
-
 //TODO: Variables for Part 2
 let questions=["Who was the first American woman in space? " ,"True or false: 5 kilometer == 5000 meters? " , "(5 + 3)/2 * 10 = ? " , "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? "   , "What is the minimum crew size for the ISS? " ];
-let correctAnswers=['Sally Ride','true'  ,'40'  , 'Trajectory'   ,  '3'   ]
+let correctAnswers= ['Sally Ride','true'  ,'40'  , 'Trajectory'   ,  '3'   ];
 
 let candidateAnswers=[];
 
@@ -24,22 +23,14 @@ candidateName= input.question("Name?");
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 
-for (let i = 0; i < 5; i++){
-  candidateAnswers=candidateAnswers+ "," + input.question(questions[i]);
-
-candidateAnswers=candidateAnswers.split(",");
-
-candidateAnswers.splice(0,1);
-
-candidateAnswer=candidateAnswers
-
-
-}return candidateAnswer;
-}
+for (let i = 0; i < questions.length ; i++)                                                                           
+{let groupA = input.question(`${questions[i]}`);                                      
+candidateAnswers.push(groupA);
+}}
 
 //Now need to turn string into Array
 
-function gradeQuiz(candidateAnswer) {
+function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
@@ -50,15 +41,17 @@ function gradeQuiz(candidateAnswer) {
 let correct= 0;
 
 for (let i = 0; i < 5; i++){
-  if (candidateAnswer[i].toLocaleLowerCase()===correctAnswers[i].toLocaleLowerCase()){
-  correct = correct + 1 ;
+  if (candidateAnswers[i].toLowerCase()===correctAnswers[i].toLowerCase()){
+      correct = correct + 1 ;
 }
   
 }
 let grade =0 ;  //TODO 3.2 use this variable to calculate the candidates score.
   grade = (correct) / (questions.length) * 100; 
+console.log(grade);
+console.log("Answers",candidateAnswers,"\n","Correct Responses",correctAnswers)  ;
 
-  return (grade,);
+return (grade);
 }
 
 
